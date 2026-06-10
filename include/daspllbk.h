@@ -4,6 +4,55 @@
 #include <string.h>
 
 /**
+  Dynamic array holding integers.
+*/
+typedef struct daspllbk_int_arr
+{
+	int *data;
+	size_t size;
+	size_t capacity;
+} daspllbk_int_arr;
+/**
+  Dynamic array holding floats.
+*/
+typedef struct daspllbk_float_arr
+{
+	float *data;
+	size_t size;
+	size_t capacity;
+} daspllbk_float_arr;
+/**
+  Dynamic array holding doubles.
+*/
+typedef struct daspllbk_double_arr
+{
+	double *data;
+	size_t size;
+	size_t capacity;
+} daspllbk_double_arr;
+/**
+  Dynamic array holding characters.
+
+  This dynamic array is special,
+  as it can represent a string.
+*/
+typedef struct daspllbk_char_arr
+{
+	char *data;
+	size_t size;
+	size_t capacity;
+} daspllbk_char_arr;
+/**
+  Dynamic array holding strings.
+*/
+typedef struct daspllbk_string_arr
+{
+	char **data;
+	size_t size;
+	size_t capacity;
+} daspllbk_string_arr;
+
+/**
   Initializes the given dynamic array.
   Note that this macro expects a pointer to the dynamic array.
 
@@ -30,7 +79,7 @@
 /**
   Frees a dynamic array's data.
 
-  This macro expects a pointer to the dynamic array.
+  @note This macro expects a pointer to the dynamic array.
 */
 #define daspllbk_free(dynamic_array) \
 	do { \
@@ -43,7 +92,7 @@
 /**
   Obtains an item at a given index in a dynamic array.
 
-  This macro expects a pointer to the dynamic array.
+  @note This macro expects a pointer to the dynamic array.
 
   Make sure the index is valid before
   calling this macro, as it does not validate the index.
@@ -51,8 +100,11 @@
 #define daspllbk_get(dynamic_array, idx) *((dynamic_array) -> data + (idx))
 
 /**
-  If the given dynamic array needs to expand, this macro
-  will do so by doubling its capacity.
+  This macro determines if the given dynamic array needs
+  to expand, and it will automatically expand the
+  array if necessary.
+
+  @note This macro expects a pointer to the dynamic array.
 */
 #define daspllbk_expand(dynamic_array) \
 	do { \
@@ -69,7 +121,7 @@
 /**
   Adds an item to a dynamic array.
 
-  This macro expects a pointer to the dynamic array.
+  @note This macro expects a pointer to the dynamic array.
 
   @note The dynamic array will auto-expand if necessary.
 */
@@ -81,15 +133,36 @@
 	} while(0)
 
 /**
+  Adds multiple items to a dynamic array.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note The 2nd argument must be the type of elements
+  the array stores. For example, for an integer
+  array, the arguments would look like this:
+  (int_arr, int, 1, 2, 3, 4, ...).
+*/
+#define daspllbk_add_n(dynamic_array, type, ...) \
+	do { \
+		type daspllbk_args[] = { __VA_ARGS__ }; \
+		int daspllbk_args_len = sizeof daspllbk_args / sizeof(type); \
+		for(size_t i = 0; i < daspllbk_args_len; ++i) \
+			daspllbk_add(dynamic_array, daspllbk_args[i]); \
+	} while(0)
+
+/**
   Inserts an item into a dynamic array at a given index.
   In other words, after insertion, the item
   will be at the exact index given.
 
-  This macro expects a pointer to the dynamic array.
+  @note This macro expects a pointer to the dynamic array.
 
   @note You can use this macro to append a value
   to the array if the given index is equal
-  to the size of the array.
+  to the size of the array. However, if the
+  index is invalid (greater than the size
+  of the array), then this macro will
+  result in undefined behavior.
 
   @important The order of arguments should be:
   dynamic_array, index, item.
@@ -105,7 +178,12 @@
 /**
   Sets a specific item at a specific index in a dynamic array.
 
-  This macro expects a pointer to the dynamic array.
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro does not validate the size of the array
+  or the index given, so make sure the index is
+  valid for the given array, otherwise undefined
+  behavior may occur.
 
   @important The order of arguments should be:
   dynamic_array, index, item.
@@ -116,14 +194,192 @@
 	} while(0)
 
 /**
+  Replaces a specific item at a specific index in a dynamic array.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro does not validate the size of the
+  array or the index given, so make sure the index
+  is valid for the given array, otherwise
+  undefined behavior may occur.
+*/
+#define daspllbk_replace_at(dynamic_array, idx, item) \
+	do { \
+		daspllbk_remove_at(dynamic_array, idx); \
+		daspllbk_insert(dynamic_array, idx, item); \
+	} while(0)
+
+/**
+  Replaces a specific item in a dynamic array
+  based on equality.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro will search for a matching value in the
+  array, and will replace the item with the replace value
+  if it's found. Due to this, this macro will only ever
+  replace the first occurrence of the given value. The 3rd
+  argument should be a signed integer value indicating whether
+  or not the item was found in the array and replaced.
+  If 'result' is -1, the item was not found, and therefore
+  not replaced. If 'result' is not -1, it will be equal
+  to the index the item was found at.
+*/
+#define daspllbk_replace_item_result(dynamic_array, target_item, new_item, result) \
+	do { \
+		int daspllbk_item_idx = -1; \
+		daspllbk_find_item(dynamic_array, target_item, daspllbk_item_idx); \
+		if(daspllbk_item_idx != -1) \
+		{ \
+			daspllbk_replace_at(dynamic_array, daspllbk_item_idx, new_item); \
+		} \
+		(result) = daspllbk_item_idx; \
+	} while(0)
+
+/**
+  Replaces a specific item in a dynamic array
+  based on equality.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro will search for a matching value in the
+  array, and will replace the item with the replace value
+  if it's found. Due to this, this macro will only ever
+  replace the first occurrence of the given value.
+*/
+#define daspllbk_replace_item(dynamic_array, target_item, new_item) \
+	do { \
+		int daspllbk_item_idx = -1; \
+		daspllbk_replace_item_result(dynamic_array, target_item, new_item, daspllbk_item_idx); \
+	} while(0)
+
+/**
   Removes an item from a dynamic array at a given index.
 
-  This macro expects a pointer to the dynamic array.
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro does not validate the size of the
+  array or the index given, so make sure the
+  index is valid for the given array, otherwise
+  undefined behavior may occur.
 */
-#define daspllbk_remove(dynamic_array, idx) \
+#define daspllbk_remove_at(dynamic_array, idx) \
 	do { \
 		memmove((dynamic_array) -> data + (idx), (dynamic_array) -> data + (idx) + 1, ((dynamic_array) -> size - (idx) - 1) * sizeof(*(dynamic_array) -> data)); \
 		(dynamic_array) -> size--; \
+	} while(0)
+
+/**
+  Removes an item from a dynamic array based
+  on equality.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro will search for a matching
+  value in the array, and will remove the item
+  if it's found. Due to this, this macro
+  will only ever remove the first occurrence
+  of the given value. The 3rd argument
+  should be a signed integer value indicating whether
+  or not the item was found in the array and removed.
+  If 'result' is -1, the item was not found, and therefore
+  not removed. If 'result' is not -1, it will be equal
+  to the index the item was found at before it was removed.
+*/
+#define daspllbk_remove_item_result(dynamic_array, item, result) \
+	do { \
+		int daspllbk_item_idx = -1; \
+		daspllbk_find_item(dynamic_array, item, daspllbk_item_idx); \
+		if(daspllbk_item_idx != -1) \
+		{ \
+			daspllbk_remove_at(dynamic_array, daspllbk_item_idx); \
+		} \
+		(result) = daspllbk_item_idx; \
+	} while(0)
+/**
+  Removes an item from a dynamic array based
+  on equality.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro will search for a matching
+  value in the array, and will remove the item
+  if it's found. Due to this, this macro
+  will only ever remove the first occurrence
+  of the given value. To see whether or not the
+  item was removed, use daspllbk_remove_item_result(...).
+*/
+#define daspllbk_remove_item(dynamic_array, item) \
+	do { \
+		int daspllbk_item_dx = -1; \
+		daspllbk_remove_item_result(dynamic_array, item, daspllbk_item_idx); \
+	} while(0)
+
+/**
+  Determines if the given array contains a specific item.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  The 3rd argument should be a signed integer value
+  indicating whether or not the item was found in the array.
+  If 'result' is -1, the item was not found. If 'result'
+  is not -1, it is equal to the index the item was found at.
+*/
+#define daspllbk_find_item(dynamic_array, item, result) \
+	do { \
+		(result) = -1; \
+		for(size_t i = 0; i < (dynamic_array) -> size; ++i) \
+		{ \
+			if((dynamic_array) -> data[i] == (item)) \
+			{ \
+				(result) = i; \
+				break; \
+			} \
+		} \
+	} while(0)
+
+/**
+  Clears the given dynamic array. Clearing the array
+  results in its size being 0.
+
+  @note This macro expects a pointer to the dynamic array.
+*/
+#define daspllbk_clear(dynamic_array) \
+	do { \
+		for(size_t i = 0; i < (dynamic_array) -> size; ++i) \
+		{ \
+			(dynamic_array) -> data[i] = 0; \
+		} \
+		(dynamic_array) -> size = 0; \
+	} while(0)
+
+/**
+  Creates a new dynamic array based on a sub-region of
+  another dynamic array.
+
+  @note This macro expects a pointer to the target dynamic
+  array, as well as the resulting dynamic array.
+
+  @note 'start_idx' is inclusive, but 'end_idx' is exclusive.
+  Additionally, 'start_idx' should always be less than 'end_idx' or
+  undefined behavior may occur. To copy the full target array
+  into the resulting array, 'start_idx' should be 0, and 'end_idx'
+  should be the size of 'target_dynamic_array.'
+
+  @note This macro does not validate the size of the
+  array or the index given, so make sure the index
+  is valid for the given array, otherwise undefined
+  behavior may occur.
+
+  @note This macro expects the resulting dynamic array to be
+  initialized but empty.
+*/
+#define daspllbk_get_sub_arr(target_dynamic_array, start_idx, end_idx, result_dynamic_array) \
+	do { \
+		size_t daspllbk_ptr_range = (end_idx) - (start_idx); \
+		size_t daspllbk_ptr_range_bytes = daspllbk_ptr_range * sizeof(*((target_dynamic_array) -> data)); \
+		memmove((result_dynamic_array) -> data, (target_dynamic_array) -> data + (start_idx), daspllbk_ptr_range_bytes); \
+		(result_dynamic_array) -> size += daspllbk_ptr_range; \
 	} while(0)
 
 #ifdef _WIN32

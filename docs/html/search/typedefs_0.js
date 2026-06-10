@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['timey_5fdatetime_0',['timey_datetime',['../da/d25/vibrant__logs_8h.html#a6eae5f573a97175387ca13293bf86c9a',1,'vibrant_logs.h']]],
-  ['timey_5ftimestamp_1',['timey_timestamp',['../da/d25/vibrant__logs_8h.html#a9206ab04940f41c4a8e1da08567cafea',1,'vibrant_logs.h']]]
+  ['daspllbk_5fchar_5farr_0',['daspllbk_char_arr',['../d2/d29/daspllbk_8h.html#ac955f1046e114c747910bf886f428083',1,'daspllbk.h']]],
+  ['daspllbk_5fdouble_5farr_1',['daspllbk_double_arr',['../d2/d29/daspllbk_8h.html#a557c9475794a604aacde5cccd9598061',1,'daspllbk.h']]],
+  ['daspllbk_5ffloat_5farr_2',['daspllbk_float_arr',['../d2/d29/daspllbk_8h.html#ab7f4b8ed212d6aca6328bbdfbeddfc0f',1,'daspllbk.h']]],
+  ['daspllbk_5fint_5farr_3',['daspllbk_int_arr',['../d2/d29/daspllbk_8h.html#a4dcbeb4d8ab9739573ec63dccc595f7c',1,'daspllbk.h']]],
+  ['daspllbk_5fstring_5farr_4',['daspllbk_string_arr',['../d2/d29/daspllbk_8h.html#af97b976229228502126001179332b0fe',1,'daspllbk.h']]]
 ];

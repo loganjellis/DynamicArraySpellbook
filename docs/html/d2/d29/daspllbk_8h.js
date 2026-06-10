@@ -1,12 +1,31 @@
 var daspllbk_8h =
 [
+    [ "daspllbk_int_arr", "d3/d1e/structdaspllbk__int__arr.html", "d3/d1e/structdaspllbk__int__arr" ],
+    [ "daspllbk_float_arr", "d7/d5d/structdaspllbk__float__arr.html", "d7/d5d/structdaspllbk__float__arr" ],
+    [ "daspllbk_double_arr", "d5/d9d/structdaspllbk__double__arr.html", "d5/d9d/structdaspllbk__double__arr" ],
+    [ "daspllbk_char_arr", "d8/d04/structdaspllbk__char__arr.html", "d8/d04/structdaspllbk__char__arr" ],
+    [ "daspllbk_string_arr", "df/de5/structdaspllbk__string__arr.html", "df/de5/structdaspllbk__string__arr" ],
     [ "daspllbk_add", "d2/d29/daspllbk_8h.html#af90a41db63ce91320f25aca09fc8c3be", null ],
+    [ "daspllbk_add_n", "d2/d29/daspllbk_8h.html#a40cc3e95e06140d81d2d1fb41740d809", null ],
     [ "DASPLLBK_API", "d2/d29/daspllbk_8h.html#a316366c0fb993fa0ac9959411f1fb9e0", null ],
+    [ "daspllbk_clear", "d2/d29/daspllbk_8h.html#ae1311c8807df058bdf38bcb326592f0b", null ],
     [ "daspllbk_expand", "d2/d29/daspllbk_8h.html#aabca71dcdf1d674a512ff1aebccfafe6", null ],
+    [ "daspllbk_find_item", "d2/d29/daspllbk_8h.html#a3d63f3d2c86e52dc8cc3e489c1723565", null ],
     [ "daspllbk_free", "d2/d29/daspllbk_8h.html#a14814d1c25d35960a2a3853a647fc0b0", null ],
     [ "daspllbk_get", "d2/d29/daspllbk_8h.html#af261faf7c81781e47a78a010b15a7a92", null ],
+    [ "daspllbk_get_sub_arr", "d2/d29/daspllbk_8h.html#a9d6890a30f93e3d9faedf00fa19ba66b", null ],
     [ "daspllbk_init", "d2/d29/daspllbk_8h.html#ac124298e50f9675898d2c3d805d64601", null ],
     [ "daspllbk_insert", "d2/d29/daspllbk_8h.html#ae579441542fe650f73559110cce1c4b6", null ],
-    [ "daspllbk_remove", "d2/d29/daspllbk_8h.html#a1f1bf6709f8aee1b3015ff2fe91ed38e", null ],
-    [ "daspllbk_set", "d2/d29/daspllbk_8h.html#a270f08c4510f14fca6767a66f5c0f1ce", null ]
+    [ "daspllbk_remove_at", "d2/d29/daspllbk_8h.html#ae9b0cd4c59a48781f64acf22afd6deba", null ],
+    [ "daspllbk_remove_item", "d2/d29/daspllbk_8h.html#ad6b1e14800d6cc523922dab430563258", null ],
+    [ "daspllbk_remove_item_result", "d2/d29/daspllbk_8h.html#a8eea1bc8453a199f8249900c71d9832a", null ],
+    [ "daspllbk_replace_at", "d2/d29/daspllbk_8h.html#ac8a9853a00e87e17ab59bac520123550", null ],
+    [ "daspllbk_replace_item", "d2/d29/daspllbk_8h.html#ad8de2eebfc033c846b6c0a22d77d5434", null ],
+    [ "daspllbk_replace_item_result", "d2/d29/daspllbk_8h.html#a560cc2d854e0d3bae84d9f4a59a1cb93", null ],
+    [ "daspllbk_set", "d2/d29/daspllbk_8h.html#a270f08c4510f14fca6767a66f5c0f1ce", null ],
+    [ "daspllbk_char_arr", "d2/d29/daspllbk_8h.html#ac955f1046e114c747910bf886f428083", null ],
+    [ "daspllbk_double_arr", "d2/d29/daspllbk_8h.html#a557c9475794a604aacde5cccd9598061", null ],
+    [ "daspllbk_float_arr", "d2/d29/daspllbk_8h.html#ab7f4b8ed212d6aca6328bbdfbeddfc0f", null ],
+    [ "daspllbk_int_arr", "d2/d29/daspllbk_8h.html#a4dcbeb4d8ab9739573ec63dccc595f7c", null ],
+    [ "daspllbk_string_arr", "d2/d29/daspllbk_8h.html#af97b976229228502126001179332b0fe", null ]
 ];

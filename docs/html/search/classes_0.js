@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['vl_5fcolor_0',['vl_color',['../d3/d2b/structvl__color.html',1,'']]],
-  ['vl_5fcolor_5fscheme_1',['vl_color_scheme',['../d2/d05/structvl__color__scheme.html',1,'']]],
-  ['vl_5fconfig_2',['vl_config',['../db/db9/structvl__config.html',1,'']]]
+  ['daspllbk_5fchar_5farr_0',['daspllbk_char_arr',['../d8/d04/structdaspllbk__char__arr.html',1,'']]],
+  ['daspllbk_5fdouble_5farr_1',['daspllbk_double_arr',['../d5/d9d/structdaspllbk__double__arr.html',1,'']]],
+  ['daspllbk_5ffloat_5farr_2',['daspllbk_float_arr',['../d7/d5d/structdaspllbk__float__arr.html',1,'']]],
+  ['daspllbk_5fint_5farr_3',['daspllbk_int_arr',['../d3/d1e/structdaspllbk__int__arr.html',1,'']]],
+  ['daspllbk_5fstring_5farr_4',['daspllbk_string_arr',['../df/de5/structdaspllbk__string__arr.html',1,'']]]
 ];
