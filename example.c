@@ -1,34 +1,26 @@
 #include <stdio.h>
 #include <math.h>
 #include "vibrant_logs.h"
-#include "daspllbk.h"
+#include "dynamic_array_spellbook.h"
 
 int main(void)
 {
 	vl_init();
 
-	daspllbk_int_arr myints = {0};
-	daspllbk_init(&myints);
+	dynas_float_arr floats = {0};
+	dynas_init(&floats);
 
-	daspllbk_add_n(&myints, int, 0, 1, 2, 3, 4);
-
-	for(size_t i = 0; i < myints.size; ++i)
+	for(size_t i = 0; i < 10; ++i)
 	{
-		vl_log(VL_DEBUG, "myints[%zu] = %d", i, myints.data[i]);
+		dynas_add(&floats, (float) (i + 1) * 0.5f);
 	}
 
-	daspllbk_int_arr ints_sub = {0};
-	daspllbk_init(&ints_sub);
-
-	daspllbk_get_sub_arr(&myints, 0, myints.size, &ints_sub); // range_bytes = 2 * sizeof(int) (2 * 4 = 8 bytes to copy)
-
-	for(size_t i = 0; i < ints_sub.size; ++i)
+	for(size_t i = 0; i < floats.size; ++i)
 	{
-		vl_log(VL_DEBUG, "ints_sub[%zu] = %d", i, ints_sub.data[i]);
+		vl_log(VL_DEBUG, "floats[%zu] = %f", i, floats.data[i]);
 	}
 
-	daspllbk_free(&ints_sub);
-	daspllbk_free(&myints);
+	dynas_free(&floats);
 
 	return 0;
 }

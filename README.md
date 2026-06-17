@@ -30,16 +30,16 @@ cmake --install build --prefix ./install
 ### Using the library (installed package)
 
 ```
-list(APPEND CMAKE_PREFIX_PATH "/path/to/daspllbk/install")
+list(APPEND CMAKE_PREFIX_PATH "/path/to/dynamic_array_spellbook/install")
 find_package(DynamicArraySpellbook REQUIRED)
-target_link_libraries(app PRIVATE DynamicArraySpellbook::daspllbk)
+target_link_libraries(app PRIVATE DynamicArraySpellbook::dynamic_array_spellbook)
 ```
 
 ### Using the library (subdirectory)
 
 ```
 add_subdirectory(DynamicArraySpellbook)
-target_link_libraries(app PRIVATE DynamicArraySpellbook::daspllbk)
+target_link_libraries(app PRIVATE DynamicArraySpellbook::dynamic_array_spellbook)
 ```
 
 For an example of using the library, refer to `example.c`
