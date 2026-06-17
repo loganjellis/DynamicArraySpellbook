@@ -9,17 +9,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
-option(BUILD_SHARED_LIBS "Build using a shared library." ON)
+add_library(dynamic_array_spellbook INTERFACE)
 
-set(LIB_SRC "${CMAKE_CURRENT_SOURCE_DIR}/src/dynamic_array_spellbook.c")
+target_include_directories(dynamic_array_spellbook INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-add_library(dynamic_array_spellbook ${LIB_SRC})
-
-target_compile_definitions(dynamic_array_spellbook PRIVATE $<$<BOOL:${BUILD_SHARED_LIBS}>:DYNAMIC_ARRAY_SPELLBOOK_EXPORTS>)
-
-target_include_directories(dynamic_array_spellbook PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-
-target_link_libraries(dynamic_array_spellbook PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/lib/timey.lib" "${CMAKE_CURRENT_SOURCE_DIR}/lib/vibrant_logs.lib")
+target_link_libraries(dynamic_array_spellbook INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/lib/timey.lib" "${CMAKE_CURRENT_SOURCE_DIR}/lib/vibrant_logs.lib")
 
 add_executable(dynamic_array_spellbook_test "${CMAKE_CURRENT_SOURCE_DIR}/example.c")
 target_link_libraries(dynamic_array_spellbook_test PRIVATE dynamic_array_spellbook)

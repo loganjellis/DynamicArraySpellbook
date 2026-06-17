@@ -5,7 +5,6 @@ var dynamic__array__spellbook_8h =
     [ "dynas_double_arr", "dc/de5/structdynas__double__arr.html", "dc/de5/structdynas__double__arr" ],
     [ "dynas_char_arr", "d6/de7/structdynas__char__arr.html", "d6/de7/structdynas__char__arr" ],
     [ "dynas_string_arr", "dd/d30/structdynas__string__arr.html", "dd/d30/structdynas__string__arr" ],
-    [ "DYNAMIC_ARRAY_SPELLBOOK_API", "d7/da1/dynamic__array__spellbook_8h.html#a85676e1619374c63c6560aee44e0fbd0", null ],
     [ "dynas_add", "d7/da1/dynamic__array__spellbook_8h.html#a1350542964458a22409727c02a9a740c", null ],
     [ "dynas_add_chars", "d7/da1/dynamic__array__spellbook_8h.html#a3f5f0872a56512953c86eaefd409d195", null ],
     [ "dynas_add_n", "d7/da1/dynamic__array__spellbook_8h.html#a88d8e02009aa1fcf5d783dcc2dd02bca", null ],

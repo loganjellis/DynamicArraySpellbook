@@ -404,13 +404,3 @@ typedef struct dynas_string_arr
 		memmove((result_dynamic_array) -> data, (target_dynamic_array) -> data + (start_idx), dynas_ptr_range_bytes); \
 		(result_dynamic_array) -> size += dynas_ptr_range; \
 	} while(0)
-
-#ifdef _WIN32
-	#ifdef DYNAMIC_ARRAY_SPELLBOOK_EXPORTS
-		#define DYNAMIC_ARRAY_SPELLBOOK_API __declspec(dllexport)
-	#else
-		#define DYNAMIC_ARRAY_SPELLBOOK_API __declspec(dllimport)
-	#endif
-#else
-	#define DYNAMIC_ARRAY_SPELLBOOK_API
-#endif
