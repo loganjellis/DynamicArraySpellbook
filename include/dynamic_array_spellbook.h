@@ -54,7 +54,8 @@ typedef struct dynas_string_arr
 
 /**
   Initializes the given dynamic array.
-  Note that this macro expects a pointer to the dynamic array.
+
+  @note This macro expects a pointer to the dynamic array.
 
   The given dynamic array must have at least
   3 fields:
@@ -63,7 +64,7 @@ typedef struct dynas_string_arr
   - A size_t called 'size.' This is the array's current size.
   - A size_t called 'capacity.' This is the max size of the array.
 
-  When an array dynamic array is initialized, its size is 0, its capacity
+  When a dynamic array is initialized, its size is 0, its capacity
   starts out at 10, and its data is automatically allocated for you.
 
   @important Make sure you call dynas_free(&dynamic_array) when you are
@@ -343,7 +344,7 @@ typedef struct dynas_string_arr
 
   @note This macro expects a pointer to the dynamic array.
 
-  The 3rd argument should be a signed integer value
+  @note The 3rd argument should be a signed integer value
   indicating whether or not the item was found in the array.
   If 'result' is -1, the item was not found. If 'result'
   is not -1, it is equal to the index the item was found at.
