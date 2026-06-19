@@ -1,5 +1,28 @@
 var searchData=
 [
-  ['capacity_0',['capacity',['../d0/d35/structdynas__int__arr.html#a2d33abc1c4673dc2db937313c9b1a559',1,'dynas_int_arr::capacity'],['../dc/dd6/structdynas__float__arr.html#a75807af4b5ef5d89cb153e36df78b03c',1,'dynas_float_arr::capacity'],['../dc/de5/structdynas__double__arr.html#a900c69b34d0b7992f024192adb66f4db',1,'dynas_double_arr::capacity'],['../d6/de7/structdynas__char__arr.html#a0b069fe924ee90eb97d7f0d322fd64ea',1,'dynas_char_arr::capacity'],['../dd/d30/structdynas__string__arr.html#a97042f3174dd2b4dbd393e4c4d01d9e5',1,'dynas_string_arr::capacity']]],
-  ['colors_1',['colors',['../db/db9/structvl__config.html#a49e9a538e06c452a24c7886f7f77769a',1,'vl_config']]]
+  ['data_0',['data',['../d0/d35/structdynas__int__arr.html#a5c1e8457379e0790cdd189d2203d87c9',1,'dynas_int_arr::data'],['../dc/dd6/structdynas__float__arr.html#a7833b3fee52bc961b3a468e1370e9463',1,'dynas_float_arr::data'],['../dc/de5/structdynas__double__arr.html#af40dec3c771d93c2a8a3c7b72c16bffb',1,'dynas_double_arr::data'],['../d6/de7/structdynas__char__arr.html#a4cab091edf81485fa951afd8d7a051f3',1,'dynas_char_arr::data'],['../dd/d30/structdynas__string__arr.html#a0274fd82bf13ac3e7e218a370f8ede7f',1,'dynas_string_arr::data']]],
+  ['dynamic_5farray_5fspellbook_2eh_1',['dynamic_array_spellbook.h',['../d7/da1/dynamic__array__spellbook_8h.html',1,'']]],
+  ['dynas_5fadd_2',['dynas_add',['../d7/da1/dynamic__array__spellbook_8h.html#a1350542964458a22409727c02a9a740c',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fadd_5fchars_3',['dynas_add_chars',['../d7/da1/dynamic__array__spellbook_8h.html#a3f5f0872a56512953c86eaefd409d195',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fadd_5fn_4',['dynas_add_n',['../d7/da1/dynamic__array__spellbook_8h.html#a88d8e02009aa1fcf5d783dcc2dd02bca',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fchar_5farr_5',['dynas_char_arr',['../d6/de7/structdynas__char__arr.html',1,'dynas_char_arr'],['../d7/da1/dynamic__array__spellbook_8h.html#abebc81b3569f507e542d3c29a2fa932f',1,'dynas_char_arr:&#160;dynamic_array_spellbook.h']]],
+  ['dynas_5fclear_6',['dynas_clear',['../d7/da1/dynamic__array__spellbook_8h.html#a328ad659cd45d14beaea385041b67af0',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fdouble_5farr_7',['dynas_double_arr',['../dc/de5/structdynas__double__arr.html',1,'dynas_double_arr'],['../d7/da1/dynamic__array__spellbook_8h.html#a5537631a6cd1aab016073341acb33142',1,'dynas_double_arr:&#160;dynamic_array_spellbook.h']]],
+  ['dynas_5fexpand_8',['dynas_expand',['../d7/da1/dynamic__array__spellbook_8h.html#aa603e6f374fe71cd5761ea2607c3fa16',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5ffind_5fitem_9',['dynas_find_item',['../d7/da1/dynamic__array__spellbook_8h.html#a9c86756536c3b6124f2e53f8934ad892',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5ffloat_5farr_10',['dynas_float_arr',['../dc/dd6/structdynas__float__arr.html',1,'dynas_float_arr'],['../d7/da1/dynamic__array__spellbook_8h.html#a8bd7289eaf12a70efc180fc706aa1ba6',1,'dynas_float_arr:&#160;dynamic_array_spellbook.h']]],
+  ['dynas_5ffree_11',['dynas_free',['../d7/da1/dynamic__array__spellbook_8h.html#ab97f8e61e2754c1b7c9be9253de35e1b',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fget_12',['dynas_get',['../d7/da1/dynamic__array__spellbook_8h.html#a3900d99fde403f4fca80bb88c46622ac',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fget_5fsub_5farr_13',['dynas_get_sub_arr',['../d7/da1/dynamic__array__spellbook_8h.html#acb124792ae37dbe5ef388d75b13436a0',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5finit_14',['dynas_init',['../d7/da1/dynamic__array__spellbook_8h.html#ae3af1fb168fdabca1c45a9e33f6d4708',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5finsert_15',['dynas_insert',['../d7/da1/dynamic__array__spellbook_8h.html#ae9c04cef161f478e7074984097e26407',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fint_5farr_16',['dynas_int_arr',['../d0/d35/structdynas__int__arr.html',1,'dynas_int_arr'],['../d7/da1/dynamic__array__spellbook_8h.html#aef7a11b49dcbe20fe03467754f993f2e',1,'dynas_int_arr:&#160;dynamic_array_spellbook.h']]],
+  ['dynas_5fremove_5fat_17',['dynas_remove_at',['../d7/da1/dynamic__array__spellbook_8h.html#a2b1846abd660d76b65fa3ff5e123ed45',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fremove_5fitem_18',['dynas_remove_item',['../d7/da1/dynamic__array__spellbook_8h.html#a6d4c88b17a353f11a5ff2a5636649eee',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fremove_5fitem_5fresult_19',['dynas_remove_item_result',['../d7/da1/dynamic__array__spellbook_8h.html#a702ec31ef35606b2b6cfcd8a0a748dfb',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5freplace_5fat_20',['dynas_replace_at',['../d7/da1/dynamic__array__spellbook_8h.html#a3066350a5ddae1c6301d536567cb734e',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5freplace_5fitem_21',['dynas_replace_item',['../d7/da1/dynamic__array__spellbook_8h.html#aea87ce8c67fbc1f14615175a2f4b5144',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5freplace_5fitem_5fresult_22',['dynas_replace_item_result',['../d7/da1/dynamic__array__spellbook_8h.html#ae702a91e52e9cd29a8a1054d2f4d134c',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fset_23',['dynas_set',['../d7/da1/dynamic__array__spellbook_8h.html#a40887f30647afe60591ffd1cac604663',1,'dynamic_array_spellbook.h']]],
+  ['dynas_5fstring_5farr_24',['dynas_string_arr',['../dd/d30/structdynas__string__arr.html',1,'dynas_string_arr'],['../d7/da1/dynamic__array__spellbook_8h.html#a6945da685c900c2a396378a27c3ba241',1,'dynas_string_arr:&#160;dynamic_array_spellbook.h']]]
 ];

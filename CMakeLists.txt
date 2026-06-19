@@ -13,8 +13,6 @@ add_library(dynamic_array_spellbook INTERFACE)
 
 target_include_directories(dynamic_array_spellbook INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-target_link_libraries(dynamic_array_spellbook INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/lib/timey.lib" "${CMAKE_CURRENT_SOURCE_DIR}/lib/vibrant_logs.lib")
-
 add_executable(dynamic_array_spellbook_test "${CMAKE_CURRENT_SOURCE_DIR}/example.c")
 target_link_libraries(dynamic_array_spellbook_test PRIVATE dynamic_array_spellbook)
 
