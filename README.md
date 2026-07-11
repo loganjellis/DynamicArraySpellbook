@@ -18,21 +18,10 @@ cmake -S . -B build
 cmake --build build
 ```
 
-## Optionally installing
+### Using the library (in-directory, just place dynamic_array_spellbook.h inside your /include directory)
 
 ```
-cmake --install build --prefix ./install
-```
-
-> [!NOTE]
-> Note that ./install is a placeholder install location for the library. Omitting the install location results in the library being installed in the operating system's default path.
-
-### Using the library (installed package)
-
-```
-list(APPEND CMAKE_PREFIX_PATH "/path/to/dynamic_array_spellbook/install")
-find_package(DynamicArraySpellbook REQUIRED)
-target_link_libraries(app PRIVATE DynamicArraySpellbook::dynamic_array_spellbook)
+target_include_directories(app PRIVATE "path/to/include")
 ```
 
 ### Using the library (subdirectory)
