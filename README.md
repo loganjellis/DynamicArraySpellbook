@@ -24,13 +24,6 @@ cmake --build build
 target_include_directories(app PRIVATE "path/to/include")
 ```
 
-### Using the library (subdirectory)
-
-```
-add_subdirectory(DynamicArraySpellbook)
-target_link_libraries(app PRIVATE DynamicArraySpellbook::dynamic_array_spellbook)
-```
-
 For an example of using the library, refer to `example.c`
 
 To view the library's documentation, click <a href="docs/html" target="_blank">here</a>.
