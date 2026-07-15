@@ -24,6 +24,4 @@ cmake --build build
 target_include_directories(app PRIVATE "path/to/include")
 ```
 
-For an example of using the library, refer to `example.c`
-
 To view the library's documentation, click <a href="docs/html" target="_blank">here</a>.

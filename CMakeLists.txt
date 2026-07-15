@@ -5,11 +5,7 @@ set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_C_COMPILER "C:/ProgramData/mingw64/mingw64/bin/gcc.exe")
 
 add_library(dynamic_array_spellbook INTERFACE)
 
 target_include_directories(dynamic_array_spellbook INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include")
-
-add_executable(dynamic_array_spellbook_test "${CMAKE_CURRENT_SOURCE_DIR}/example.c")
-target_link_libraries(dynamic_array_spellbook_test PRIVATE dynamic_array_spellbook)
