@@ -106,6 +106,9 @@ typedef struct dynas_string_arr
   array if necessary.
 
   @note This macro expects a pointer to the dynamic array.
+
+  @important If the reallocation fails, the 'data' pointer
+  on the given array will be equal to NULL.
 */
 #define dynas_expand(dynamic_array) \
 	do { \
@@ -114,7 +117,14 @@ typedef struct dynas_string_arr
 			if((dynamic_array) -> capacity * 2 <= SIZE_MAX) \
 			{ \
 				(dynamic_array) -> capacity *= 2; \
-				(dynamic_array) -> data = realloc((dynamic_array) -> data, (dynamic_array) -> capacity * sizeof(*(dynamic_array) -> data)); \
+				__typeof__((dynamic_array) -> data) ptr = realloc((dynamic_array) -> data, (dynamic_array) -> capacity * sizeof(*(dynamic_array) -> data)); \
+				if(ptr) \
+					(dynamic_array) -> data = ptr; \
+				else \
+				{ \
+					dynas_free(dynamic_array); \
+					(dynamic_array) -> data = NULL; \
+				} \
 			} \
 		} \
 	} while(0)
@@ -129,6 +139,8 @@ typedef struct dynas_string_arr
 #define dynas_add(dynamic_array, item) \
 	do { \
 		dynas_expand(dynamic_array); \
+		if(!(dynamic_array) -> data) \
+			break; \
 		(dynamic_array) -> data[(dynamic_array) -> size] = (item); \
 		(dynamic_array) -> size++; \
 	} while(0)
@@ -194,6 +206,8 @@ typedef struct dynas_string_arr
 #define dynas_insert(dynamic_array, idx, item) \
 	do { \
 		dynas_expand(dynamic_array); \
+		if(!(dynamic_array) -> data) \
+			break; \
 		memmove((dynamic_array) -> data + (idx) + 1, (dynamic_array) -> data + (idx), ((dynamic_array) -> size - (idx)) * sizeof(*(dynamic_array) -> data)); \
 		(dynamic_array) -> data[(idx)] = (item); \
 		(dynamic_array) -> size++; \
