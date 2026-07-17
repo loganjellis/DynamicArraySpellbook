@@ -108,7 +108,7 @@ typedef struct dynas_string_arr
   @note This macro expects a pointer to the dynamic array.
 
   @important If the reallocation fails, the 'data' pointer
-  on the given array will be equal to NULL.
+  in the given array will be equal to NULL.
 */
 #define dynas_expand(dynamic_array) \
 	do { \
@@ -275,6 +275,33 @@ typedef struct dynas_string_arr
 	} while(0)
 
 /**
+  Replaces a specific string in a dynamic array
+  based on equality.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro will search for a matching string in the
+  array, and will replace the string with the replace string
+  if it's found. Due to this, this macro will only ever
+  replace the first occurrence of the given string. The 3rd
+  argument should be a signed integer value indicating whether
+  or not the string was found in the array and replaced.
+  If 'result' is -1, the string was not found, and therefore
+  not replaced. If 'result' is not -1, it will be equal
+  to the index the string was found at.
+*/
+#define dynas_replace_str_result(dynamic_array, target_str, new_str, result) \
+	do { \
+		int dynas_item_idx = -1; \
+		dynas_find_str(dynamic_array, target_str, dynas_item_idx); \
+		if(dynas_item_idx != -1) \
+		{ \
+			dynas_replace_at(dynamic_array, dynas_item_idx, new_str); \
+		} \
+		(result) = dynas_item_idx; \
+	} while(0)
+
+/**
   Replaces a specific item in a dynamic array
   based on equality.
 
@@ -289,6 +316,23 @@ typedef struct dynas_string_arr
 	do { \
 		int dynas_item_idx = -1; \
 		dynas_replace_item_result(dynamic_array, target_item, new_item, dynas_item_idx); \
+	} while(0)
+
+/**
+  Replaces a specific string in a dynamic array
+  based on equality.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro will search for a matching string in the
+  array, and will replace the string with the replace string
+  if it's found. Due to this, this macro will only ever
+  replace the first occurrence of the given string.
+*/
+#define dynas_replace_str(dynamic_array, target_str, new_str) \
+	do { \
+		int dynas_item_idx = -1; \
+		dynas_replace_str_result(dynamic_array, target_str, new_str, dynas_item_idx); \
 	} while(0)
 
 /**
@@ -334,6 +378,35 @@ typedef struct dynas_string_arr
 		} \
 		(result) = dynas_item_idx; \
 	} while(0)
+
+/**
+  Removes a string from a dynamic array based
+  on equality.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro will search for a matching
+  string in the array, and will remove thestring 
+  if it's found. Due to this, this macro
+  will only ever remove the first occurrence
+  of the given string. The 3rd argument
+  should be a signed integer value indicating whether
+  or not the string was found in the array and removed.
+  If 'result' is -1, the string was not found, and therefore
+  not removed. If 'result' is not -1, it will be equal
+  to the index the string was found at before it was removed.
+*/
+#define dynas_remove_str_result(dynamic_array, str, result) \
+	do { \
+		int dynas_item_idx = -1; \
+		dynas_find_str(dynamic_array, str, dynas_item_idx); \
+		if(dynas_item_idx != -1) \
+		{ \
+			dynas_remove_at(dynamic_array, dynas_item_idx); \
+		} \
+		(result) = dynas_item_idx; \
+	} while(0)
+
 /**
   Removes an item from a dynamic array based
   on equality.
@@ -354,6 +427,25 @@ typedef struct dynas_string_arr
 	} while(0)
 
 /**
+  Removes a string from a dynamic array based
+  on equality.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note This macro will search for a matching
+  string in the array, and will remove the string
+  if it's found. Due to this, this macro
+  will only ever remove the first occurrence
+  of the given string. To see whether or not the
+  string was removed, use dynas_remove_str_result(...).
+*/
+#define dynas_remove_str(dynamic_array, str) \
+	do { \
+		int dynas_item_dx = -1; \
+		dynas_remove_str_result(dynamic_array, str, dynas_item_idx); \
+	} while(0)
+
+/**
   Determines if the given array contains a specific item.
 
   @note This macro expects a pointer to the dynamic array.
@@ -369,6 +461,29 @@ typedef struct dynas_string_arr
 		for(size_t i = 0; i < (dynamic_array) -> size; ++i) \
 		{ \
 			if((dynamic_array) -> data[i] == (item)) \
+			{ \
+				(result) = i; \
+				break; \
+			} \
+		} \
+	} while(0)
+
+/**
+  Determines if the given array contains a specific string.
+
+  @note This macro expects a pointer to the dynamic array.
+
+  @note The 3rd argument should be a signed integer value
+  indicating whether or not the string was found in the array.
+  If 'result' is -1, the string was not found. If 'result'
+  is not -1, it is equal to the index the string was found at.
+*/
+#define dynas_find_str(dynamic_array, str, result) \
+	do { \
+		(result) = -1; \
+		for(size_t i = 0; i < (dynamic_array) -> size; ++i) \
+		{ \
+			if(strcmp(str, (dynamic_array) -> data[i]) == 0) \
 			{ \
 				(result) = i; \
 				break; \
